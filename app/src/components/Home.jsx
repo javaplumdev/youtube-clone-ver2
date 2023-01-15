@@ -4,7 +4,7 @@ import VideoContainer from './VideoContainer';
 
 const Home = () => {
 	return (
-		<div className="grid grid-cols-6">
+		<div className="grid md:grid-cols-10">
 			<Categories />
 			<VideoContainer />
 		</div>

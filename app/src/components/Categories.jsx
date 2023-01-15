@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { categories } from '../utils/data.js';
 
-const Categories = () => {
-	const [isActive, setIsActive] = useState('New');
+import { ContextProvider } from '../context/context-config';
 
-	const changeColor = (category) => {
-		setIsActive(category);
-	};
+const Categories = () => {
+	const { isActive, setIsActive, changeColor } = useContext(ContextProvider);
 
 	return (
 		<div
-			className="flex flex-col bg-mainColor px-4"
-			style={{ overflow: 'auto', height: '100vh' }}
+			className="sidebar flex sm:flex-row md:flex-col bg-mainColor px-4 md:h-screen w-100 sm:col-span-6 md:col-span-2"
+			style={{ overflow: 'auto', position: 'sticky' }}
 		>
-			<h1 className="my-2 text-2xl text-white">Categories</h1>
+			<h1 className="hidden md:block text-2xl text-white">Categories</h1>
 			{categories.map((item) => {
 				return (
 					<div
-						key={item.id}
+						key={item.name}
 						style={{ width: 'auto' }}
 						className={
 							isActive == item.name

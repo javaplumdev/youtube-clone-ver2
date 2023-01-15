@@ -10,7 +10,7 @@ const Navbar = () => {
 				<div className="flex items-center">
 					<input
 						type="text"
-						className="border border-gray-400 bg-mainColor px-3 py-2 rounded"
+						className="border border-gray-400 bg-mainColor px-3 py-2 rounded w-full"
 						placeholder="Search"
 					/>
 					<button className="bg-button px-4 py-3 rounded mx-2">

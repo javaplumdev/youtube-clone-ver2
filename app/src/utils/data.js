@@ -12,10 +12,7 @@ export const image = 'https://img.icons8.com/color/512/youtube-play.png';
 
 export const categories = [
 	{ name: 'New', icon: <FiTrendingUp size={30} className="icons" /> },
-	{ name: 'JS Mastery', icon: <BsCodeSlash size={30} className="icons" /> },
 	{ name: 'Coding', icon: <BsCodeSlash size={30} className="icons" /> },
-	{ name: 'ReactJS', icon: <BsCodeSlash size={30} className="icons" /> },
-	{ name: 'NextJS', icon: <BsCodeSlash size={30} className="icons" /> },
 	{ name: 'Music', icon: <BsMusicNoteBeamed size={30} className="icons" /> },
 	{ name: 'Education', icon: <BsBook size={30} className="icons" /> },
 	{ name: 'Podcast', icon: <CgMediaPodcast size={30} className="icons" /> },
