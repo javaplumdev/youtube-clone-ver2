@@ -21,7 +21,7 @@ export const ContextFunction = ({ children }) => {
 		params: {
 			q: isActive,
 			part: 'snippet,id',
-			regionCode: 'US',
+			regionCode: 'PH',
 			maxResults: '20',
 			order: 'date',
 		},

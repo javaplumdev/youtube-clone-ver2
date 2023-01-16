@@ -7,7 +7,7 @@ const Navbar = () => {
 	return (
 		<div className="bg-mainColor text-white">
 			<div className="container mx-auto flex justify-between items-center py-2">
-				<Link to="/home">
+				<Link to="/">
 					<img src={image} alt={image} style={{ maxWidth: '50px' }} />
 				</Link>
 
