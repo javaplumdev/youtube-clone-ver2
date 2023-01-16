@@ -29,7 +29,14 @@ const VideoContainer = () => {
 										}}
 										className="rounded-lg"
 									/>
-									<p className="text-white font-bold mt-2 p-3 ">
+									<p className="text-white font-bold text-md px-3 mt-2">
+										{item.snippet.title.length > 40 ? (
+											<p>{item.snippet.title.slice(0, 40)}...</p>
+										) : (
+											<p>{item.snippet.title.slice(0, 40)}</p>
+										)}
+									</p>
+									<p className="text-slate-400 px-3">
 										{item.snippet.channelTitle}
 									</p>
 								</div>

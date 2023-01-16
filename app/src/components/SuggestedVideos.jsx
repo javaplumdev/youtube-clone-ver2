@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SuggestedVideos = ({ suggestedVideos }) => {
+	console.log(suggestedVideos);
+
 	return (
 		<div>
 			<p className="text-white mx-3">Suggested Videos</p>
@@ -24,7 +26,10 @@ const SuggestedVideos = ({ suggestedVideos }) => {
 									}}
 									className="rounded-lg"
 								/>
-								<p className="text-white font-bold mt-2 p-3 ">
+								<p className="text-white font-bold text-md px-3 mt-2">
+									{item.snippet.title}
+								</p>
+								<p className="text-slate-400 px-3">
 									{item.snippet.channelTitle}
 								</p>
 							</div>

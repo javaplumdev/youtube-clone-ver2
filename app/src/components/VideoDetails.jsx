@@ -6,13 +6,15 @@ import axios from 'axios';
 import ReactPlayer from 'react-player';
 import { image } from '../utils/data';
 import SuggestedVideos from './SuggestedVideos';
+import ReadMore from './ReadMore';
 
 const VideoDetails = () => {
 	const { id } = useParams();
 
 	const [video, setVideo] = useState(null);
-	const [commets, setComments] = useState(null);
+	const [comments, setComments] = useState(null);
 	const [suggestedVideos, setSuggestedVideos] = useState(null);
+	const [loadCount, setLoadCount] = useState(5);
 
 	const optionsVideo = {
 		method: 'GET',
@@ -61,7 +63,7 @@ const VideoDetails = () => {
 		axios.request(optionsSuggestedVideos).then(function (response) {
 			setSuggestedVideos(response.data);
 		});
-	}, []);
+	}, [id]);
 
 	if (!video?.snippet) return console.log('Loading');
 
@@ -69,6 +71,56 @@ const VideoDetails = () => {
 		snippet: { title, channelId, channelTitle, description },
 		statistics: { viewCount, likeCount },
 	} = video;
+
+	const addLoadCount = () => {
+		setLoadCount((prevState) => prevState + 3);
+	};
+
+	const CommentComponent = () => {
+		return (
+			<div className="text-white ">
+				{comments.items.length > 0 ? (
+					<p className="text-lg">{loadCount} comments</p>
+				) : (
+					console.log('Hi')
+				)}
+
+				{comments?.items.map &&
+					comments.items.slice(0, loadCount).map((item) => {
+						return (
+							<div
+								key={item.snippet.topLevelComment.snippet.authorDisplayName}
+								className="flex my-3 items-center"
+							>
+								<img
+									src={
+										item.snippet.topLevelComment.snippet.authorProfileImageUrl
+									}
+									className="rounded-full h-12"
+								/>
+								<div className="ml-3">
+									<p className="font-bold my-2">
+										{item.snippet.topLevelComment.snippet.authorDisplayName}
+									</p>
+									<p>{item.snippet.topLevelComment.snippet.textDisplay}</p>
+								</div>
+							</div>
+						);
+					})}
+
+				{comments.items.length > 0 ? (
+					<p
+						onClick={() => addLoadCount()}
+						className="hover:cursor-pointer font-bold"
+					>
+						See more
+					</p>
+				) : (
+					<p>No comments</p>
+				)}
+			</div>
+		);
+	};
 
 	return (
 		<div className=" bg-mainColor">
@@ -97,7 +149,12 @@ const VideoDetails = () => {
 								{' '}
 								{parseInt(viewCount).toLocaleString()} views
 							</p>
-							<p>{description}</p>
+							<ReadMore>
+								<p>{description}</p>
+							</ReadMore>
+						</div>
+						<div className="container mx-auto mt-5">
+							<CommentComponent />
 						</div>
 					</div>
 				</div>

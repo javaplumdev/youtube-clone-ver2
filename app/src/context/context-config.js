@@ -2,8 +2,6 @@ import React, { createContext, useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-import { optionsForSearch } from '../utils/apiData';
-
 export const ContextProvider = createContext();
 
 export const ContextFunction = ({ children }) => {
