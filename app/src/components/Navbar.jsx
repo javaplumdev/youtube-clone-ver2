@@ -1,12 +1,16 @@
 import React from 'react';
 import { image } from '../utils/data';
 import { BsSearch } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 	return (
 		<div className="bg-mainColor text-white">
 			<div className="container mx-auto flex justify-between items-center py-2">
-				<img src={image} alt={image} style={{ maxWidth: '50px' }} />
+				<Link to="/home">
+					<img src={image} alt={image} style={{ maxWidth: '50px' }} />
+				</Link>
+
 				<div className="flex items-center">
 					<input
 						type="text"

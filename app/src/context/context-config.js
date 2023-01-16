@@ -9,6 +9,7 @@ export const ContextProvider = createContext();
 export const ContextFunction = ({ children }) => {
 	const [isActive, setIsActive] = useState('New');
 	const [videos, setVideos] = useState(null);
+	const [video, setVideo] = useState(null);
 
 	const changeColor = (category) => {
 		setIsActive(category);
