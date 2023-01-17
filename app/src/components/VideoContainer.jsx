@@ -31,9 +31,9 @@ const VideoContainer = () => {
 									/>
 									<p className="text-white font-bold text-md px-3 mt-2">
 										{item.snippet.title.length > 40 ? (
-											<p>{item.snippet.title.slice(0, 40)}...</p>
+											<>{`${item.snippet.title.slice(0, 40)}...`}</>
 										) : (
-											<p>{item.snippet.title.slice(0, 40)}</p>
+											<>{item.snippet.title.slice(0, 40)}</>
 										)}
 									</p>
 									<p className="text-slate-400 px-3">
